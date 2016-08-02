@@ -24,27 +24,27 @@ Rectangle::~Rectangle()
     printf("c++ destructor was called\n");
 }
 
-int Rectangle::getLength()
+int Rectangle::getLength() const
 {
     return (x1 - x0);
 }
 
-int Rectangle::getHeight()
+int Rectangle::getHeight() const
 {
     return (y1 - y0);
 }
 
-int Rectangle::getArea()
+int Rectangle::getArea() const
 {
     return (x1 - x0) * (y1 - y0);
 }
 
-int Rectangle::getXPos()
+int Rectangle::getXPos() const
 {
     return x0;
 }
 
-int Rectangle::getYPos()
+int Rectangle::getYPos() const
 {
     return y0;
 }
@@ -55,6 +55,13 @@ void Rectangle::move(int dx, int dy)
     y0 += dy;
     x1 += dx;
     y1 += dy;
+}
+
+int getRectangleXPos(const Rectangle *rect) {
+    /* printf("Using getRectangleXPos. Pointer value:%i\n", rect); */
+    int xPos = rect->getXPos();
+    /* printf("Position: %i\n", xPos); */
+    return xPos;
 }
 
 }

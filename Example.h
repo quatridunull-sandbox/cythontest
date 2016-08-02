@@ -10,13 +10,15 @@ namespace example {
         Rectangle();
         Rectangle(int x0, int y0, int x1, int y1);
         ~Rectangle();
-        int getLength();
-        int getHeight();
-        int getArea();
-        int getXPos();
-        int getYPos();
+        int getLength() const;
+        int getHeight() const;
+        int getArea() const;
+        int getXPos() const;
+        int getYPos() const;
         void move(int dx, int dy);
     };
+
+    int getRectangleXPos(const Rectangle *rect);
 
 }
 

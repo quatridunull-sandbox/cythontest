@@ -9,6 +9,7 @@ cdef extern from "Example.h" namespace "example":
         int getXPos()
         int getYPos()
         void move(int, int)
+    int getRectangleXPos(Rectangle*)
 
 # Heap-allocated rectangle
 
@@ -45,4 +46,10 @@ cdef class PyRectangle:
         return self.thisptr.getYPos()
     def move(self, dx, dy):
         self.thisptr.move(dx, dy)
+
+def getRectangleXPos_test_cpp(PyRectangle rect):
+    return getRectangleXPos(rect.thisptr)
+
+def getRectangleXPos_test_cython(rect):
+    return rect.getXPos()
 
