@@ -1,9 +1,20 @@
 import example
 
 class PyRect(example.PyRectangle):
+    memberVariable = example.PyTest(0)
+
+    def __init__(self, a, b, c, d):
+        self.memberVariable = example.PyTest(1)
+        return
+
     def getXPos(self):
         print("Using derived class method!")
         return super(PyRect, self).getXPos()
+
+    def testDelete(self):
+        #test = self.memberVariable
+        #del test
+        self.memberVariable = example.PyTest(2)
 
 print("--------------------")
 
@@ -48,6 +59,15 @@ print("")
 
 print("--------------------")
 
+print("TEST DELETE")
+print("")
+
+print("call rectDerived.testDelete()")
+rectDerived.testDelete()
+print("")
+
+print("--------------------")
+
 print("Move both by (5, 5)")
 rect.move(5, 5)
 rectDerived.move(5, 5)
@@ -68,6 +88,8 @@ print("")
 print("--------------------")
 
 del rect
+print("")
 del rectDerived
+print("")
 exit()
 
