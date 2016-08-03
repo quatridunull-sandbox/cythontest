@@ -71,6 +71,12 @@ getRectangleXPos(const Rectangle *rect) {
     return xPos;
 }
 
+Test::Test() {
+    id = -1;
+    printf("Test default constructor\n");
+    return;
+}
+
 Test::Test(int num) {
     id = num;
     printf("Test Constructor: %i\n", id);
@@ -79,6 +85,23 @@ Test::Test(int num) {
 
 Test::~Test() {
     printf("Test Destructor: %i\n", id);
+    return;
+}
+
+Test& Test::operator=(const Test& src) {
+    printf("Test assignment operator: source: %i, destination: %i\n", src.id, id);
+    id = src.id;
+    return *this;
+}
+
+void Test::printTest() {
+    printf("Test ID: %i\n", id);
+    return;
+}
+
+void Test::setID(int num) {
+    printf("Change ID from %i to %i\n", id, num);
+    id = num;
     return;
 }
 

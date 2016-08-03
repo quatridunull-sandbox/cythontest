@@ -24,8 +24,12 @@ namespace example {
     private:
         int id;
     public:
+        Test();
         Test(int num);
         ~Test();
+        Test& operator=(const Test& src);
+        void printTest();
+        void setID(int num);
     };
 
 }
