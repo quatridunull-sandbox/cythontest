@@ -1,4 +1,7 @@
 import example
+from copy import deepcopy
+
+print("\n")
 
 class PyRect(example.PyRectangle):
     memberVariable = example.PyTest(0)
@@ -12,8 +15,53 @@ class PyRect(example.PyRectangle):
         return super(PyRect, self).getXPos()
 
     def testDelete(self):
-        #test = self.memberVariable
-        #del test
+        print("--1--")
+        print("test = example.PyTest(100)")
+        test = example.PyTest(100)
+        test.printTest()
+        print("")
+        print("--2--")
+        print("test2 = test")
+        test2 = test
+        test2.printTest()
+        print("")
+        print("--3--")
+        print("test3 = deepCopy(test)")
+        #test3 = deepcopy(test)
+        test3 = test
+        test3.printTest()
+        print("")
+        print("--4--")
+        print("Set ID of test2 to 99999")
+        test2.setID(99999)
+        print("Set ID of test3 to 33333")
+        test2.setID(33333)
+        print("")
+        print("--5--")
+        print("test")
+        test.printTest()
+        print("")
+        print("--6--")
+        print("test2")
+        test2.printTest()
+        print("")
+        print("--7--")
+        print("test3")
+        test3.printTest()
+        print("")
+        print("--8--")
+        print("delete test3")
+        del test3
+        print("")
+        print("--9--")
+        print("delete test2")
+        del test2
+        print("")
+        print("--10--")
+        print("delete test")
+        del test
+        print("")
+        print("--11--")
         self.memberVariable = example.PyTest(2)
 
 print("--------------------")
@@ -59,7 +107,7 @@ print("")
 
 print("--------------------")
 
-print("TEST DELETE")
+print("TEST DELETION AND COPYING")
 print("")
 
 print("call rectDerived.testDelete()")
