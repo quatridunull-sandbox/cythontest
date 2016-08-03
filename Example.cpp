@@ -71,5 +71,16 @@ getRectangleXPos(const Rectangle *rect) {
     return xPos;
 }
 
+Test::Test(int num) {
+    id = num;
+    printf("Test Constructor: %i\n", id);
+    return;
+}
+
+Test::~Test() {
+    printf("Test Destructor: %i\n", id);
+    return;
+}
+
 }
 

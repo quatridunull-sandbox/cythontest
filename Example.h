@@ -20,6 +20,14 @@ namespace example {
 
     int getRectangleXPos(const Rectangle *rect);
 
+    class Test {
+    private:
+        int id;
+    public:
+        Test(int num);
+        ~Test();
+    };
+
 }
 
 #endif

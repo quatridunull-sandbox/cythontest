@@ -11,6 +11,10 @@ cdef extern from "Example.h" namespace "example":
         void move(int, int)
     int getRectangleXPos(Rectangle*)
 
+cdef extern from "Example.h" namespace "example":
+    cdef cppclass Test:
+        Test(int)
+
 # Heap-allocated rectangle
 
 #cdef Rectangle *rec = new Rectangle(1, 2, 3, 4)
@@ -52,4 +56,11 @@ def getRectangleXPos_test_cpp(PyRectangle rect):
 
 def getRectangleXPos_test_cython(rect):
     return rect.getXPos()
+
+cdef class PyTest:
+    cdef Test *thisptr
+    def __cinit__(self, num):
+        self.thisptr = new Test(num)
+    def __dealloc__(self):
+        del self.thisptr
 
