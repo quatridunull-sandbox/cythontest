@@ -63,6 +63,9 @@ def getRectangleXPos_test_cpp(PyRectangle rect):
 def getRectangleXPos_test_cython(rect):
     return rect.getXPos()
 
+# useful notes:
+# http://stackoverflow.com/questions/7666873/cython-and-deepcopy-woes-with-referenced-methods-functions-any-alternative-id
+
 cdef class PyTest:
     #cdef Test *thisptr
     cdef Test test
