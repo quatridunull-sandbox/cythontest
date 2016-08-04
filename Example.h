@@ -1,7 +1,8 @@
 #ifndef EXAMPLE_H
 #define EXAMPLE_H
 
-namespace example {
+namespace example
+{
 
     class Rectangle {
     private:
@@ -26,10 +27,12 @@ namespace example {
     public:
         Test();
         Test(int num);
+        Test(const Test &src);
         ~Test();
         Test& operator=(const Test& src);
-        void printTest();
+        void printTest() const;
         void setID(int num);
+        int getID() const;
     };
 
 }
