@@ -15,9 +15,11 @@ cdef extern from "Example.h" namespace "example":
     cdef cppclass Test:
         Test()
         Test(int)
+        Test(Test&)
         Test& operator=(Test&)
         void printTest()
         void setID(int)
+        int getID()
 
 # Heap-allocated rectangle
 
@@ -64,16 +66,25 @@ def getRectangleXPos_test_cython(rect):
 cdef class PyTest:
     #cdef Test *thisptr
     cdef Test test
-    def __cinit__(self, num):
-        #self.thisptr = new Test(num)
+    #def __init__(self, int num):
+        #pass
+        #self.test = Test(num)
+        #return
+    def __cinit__(self, int num):
+        # self.thisptr = new Test(num)
         self.test = Test(num)
+        return
     def __dealloc__(self):
         #del self.thisptr
         return
+    def __reduce__(self):
+        return (self.__class__, (self.test.getID(),))
     def printTest(self):
         #self.thisptr.printTest()
         self.test.printTest()
+        return
     def setID(self,num):
         #self.thisptr.setID(num)
         self.test.setID(num)
+        return
 
