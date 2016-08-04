@@ -27,8 +27,8 @@ class PyRect(example.PyRectangle):
         print("")
         print("--3--")
         print("test3 = deepCopy(test)")
-        #test3 = deepcopy(test)
-        test3 = test
+        test3 = deepcopy(test)
+        #test3 = test
         test3.printTest()
         print("")
         print("--4--")
